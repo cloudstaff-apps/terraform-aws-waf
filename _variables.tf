@@ -126,8 +126,9 @@ variable "managed_rule_group_statement_rules" {
     managed_rule_group_statement = list(object({
       name                       = string
       vendor_name                = string
-      excluded_rule              = list(string)
-      block_rule_action_override = list(string)
+      excluded_rule = list(object({
+        name = string
+      }))
     }))
   }))
 }
